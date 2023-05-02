@@ -39,5 +39,5 @@ public class Morador implements Serializable {
     private boolean status;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_MORADOR__ID_APTO"))
-    private Apto id_apto;
+    private Apto apto;
 }

@@ -4,5 +4,4 @@ public enum ETipoFuncionario {
     PORTEIRO,
     ZELADOR,
     GERENTE,
-    ADMIN,
 }

@@ -1,20 +1,21 @@
 package com.smartentry.backend.enums.conversors;
 
 import com.smartentry.backend.enums.ETipoFuncionario;
+import com.smartentry.backend.enums.ETipoUsuario;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
-public class ETipoFuncionarioConversor implements AttributeConverter<ETipoFuncionario, Integer> {
+public class ETipoUusuarioConversor implements AttributeConverter<ETipoUsuario, Integer> {
 
     @Override
-    public Integer convertToDatabaseColumn(ETipoFuncionario tipo){
+    public Integer convertToDatabaseColumn(ETipoUsuario tipo){
         switch (tipo) {
-            case PORTEIRO:
+            case MORADOR:
                 return 1;
-            case ZELADOR:
+            case PORTEIRO:
                 return 2;
-            case GERENTE:
+            case ADMIN:
                 return 3;
             default:
                 throw new IllegalArgumentException("Valor Inválido: " + tipo);
@@ -22,16 +23,17 @@ public class ETipoFuncionarioConversor implements AttributeConverter<ETipoFuncio
     }
 
     @Override
-    public ETipoFuncionario convertToEntityAttribute(Integer valor) {
+    public ETipoUsuario convertToEntityAttribute(Integer valor) {
         switch (valor) {
             case 1:
-                return ETipoFuncionario.PORTEIRO;
+                return ETipoUsuario.MORADOR;
             case 2:
-                return ETipoFuncionario.ZELADOR;
+                return ETipoUsuario.PORTEIRO;
             case 3:
-                return ETipoFuncionario.GERENTE;
+                return ETipoUsuario.ADMIN;
             default:
                 throw new IllegalArgumentException("Valor Inválido: " + valor);
         }
     }
+
 }
